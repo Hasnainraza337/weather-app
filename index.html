@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="output.css">
+    <link rel="icon" href="weather.png" type="image/png">
+    <title>Weather Web App</title>
+</head>
+
+<body class="bg-[#222] ">
+    <main class="h-screen flex justify-center items-center">
+        <div
+            class="card h-[540px] px-4 py-4 w-80 sm:w-96  bg-[url('/assets/images/badal.jpg')]  bg-center  bg-no-repeat bg-cover rounded-lg text-black">
+            <div class="search flex space-x-4">
+                <input id="input"
+                    class="h-10 w-72 outline-sky-900 rounded-full px-3 bg-transparent text-black placeholder:text-black border border-1"
+                    type="text" placeholder="Enter Your City Name">
+                <button id="search" onclick="Search()"
+                    class="w-10 h-10 hover:scale-110 flex items-center justify-center">
+                    <img class="w-12" src="/assets/icons-svg/search.svg">
+                </button>
+            </div>
+            <div class="mt-12 flex justify-center items-center flex-col ">
+                <img class="weather-icon w-32" src="">
+                <span class="condition text-white"></span>
+            </div>
+            <div class="temp mt-5 text-8xl text-black text-center"></div>
+            <div class="city mt-2 text-5xl text-black text-center"></div>
+
+            <div class="details pt-12 flex justify-between items-center">
+                <div class="humidity-details space-x-2 flex">
+                    <div class="humidity-icon">
+                        <!-- <img class="w-10" src="/assets/icons/humidity.png"> -->
+                    </div>
+                    <p class="flex flex-col">
+                        <span class="humidity"></span>
+                        <span class="hum-name"></span>
+                    </p>
+                </div>
+                <div class="wind-detail space-x-2 flex">
+                    <div class="wind-icon">
+                        <!-- <img class="w-10" src="/assets/icons/wind.png"> -->
+                    </div>
+                    <p class="flex flex-col">
+                        <span class="wind"></span>
+                        <span class="wind-name"></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

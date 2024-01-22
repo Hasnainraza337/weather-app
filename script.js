@@ -1,5 +1,5 @@
 
-let APIKEY = "71859caaf52c42eb76c5c1251d9c7a43";
+let APIKEY = import.meta.env.VITE_API_KEY;
 let APIURL = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
 let weatherIcon = document.querySelector(".weather-icon");
 
@@ -8,7 +8,6 @@ const weatherCondition = async (city) => {
     try {
         const response = await fetch(APIURL + city + `&appid=${APIKEY}`)
         const data = await response.json()
-        console.log(data)
         document.querySelector(".condition").innerHTML = data.weather[0].main;
         document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°C";
         document.querySelector(".city").innerHTML = data.name;
@@ -54,11 +53,14 @@ const weatherCondition = async (city) => {
 }
 
 // search button function
-const Search = () => {
+const Search = async() => {
     let inputValue = document.getElementById("input").value;
+    inputValue = inputValue.trim()
     if (inputValue === "") {
         return alert("Please Enter Your City Name");
     }
-    weatherCondition(inputValue);
+    await weatherCondition(inputValue);
     return document.getElementById("input").value = "";
 }
+
+document.querySelector("button").addEventListener("click", Search)

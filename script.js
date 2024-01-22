@@ -53,13 +53,13 @@ const weatherCondition = async (city) => {
 }
 
 // search button function
-const Search = async() => {
+const Search =  () => {
     let inputValue = document.getElementById("input").value;
     inputValue = inputValue.trim()
     if (inputValue === "") {
         return alert("Please Enter Your City Name");
     }
-    await weatherCondition(inputValue);
+     weatherCondition(inputValue);
     return document.getElementById("input").value = "";
 }
 
